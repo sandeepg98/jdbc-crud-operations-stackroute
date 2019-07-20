@@ -18,13 +18,12 @@ public class Delete {
 
         //Try to create a connection with your database
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employeedb", "root", "Root@123");
-             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM employee WHERE id=?");) {
-
-            preparedStatement.setInt(1, id);
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM employee WHERE id='"+id+"'");) {
 
             int rowsAffected = preparedStatement.executeUpdate();
 
-            System.out.println(rowsAffected + " rows inserted");
+            System.out.println(rowsAffected + " rows deleted");
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception ex) {

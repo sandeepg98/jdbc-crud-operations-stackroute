@@ -19,16 +19,12 @@ public class Create {
 
         //Try to create a connection with your database
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employeedb", "root", "Root@123");
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES (?,?,?,?)");) {
-
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setInt(3, age);
-            preparedStatement.setString(4, gender);
-
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employee VALUES ('"+id+"','"+name+"','"+age+"','"+gender+"')");) {
+//
             int rowsAffected = preparedStatement.executeUpdate();
 
             System.out.println(rowsAffected + " rows inserted");
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception ex) {

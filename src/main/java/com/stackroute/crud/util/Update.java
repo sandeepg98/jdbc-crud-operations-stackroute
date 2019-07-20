@@ -19,16 +19,12 @@ public class Update {
 
         //Try to create a connection with your database
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employeedb", "root", "Root@123");
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET name=?, age=?, gender=? WHERE id=?");) {
-
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, age);
-            preparedStatement.setString(3, gender);
-            preparedStatement.setInt(4, id);
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET name='"+name+"', age='"+age+"', gender='"+gender+"' WHERE id='"+id+"'");) {
 
             int rowsAffected = preparedStatement.executeUpdate();
 
-            System.out.println(rowsAffected + " rows inserted");
+            System.out.println(rowsAffected + " rows updated");
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception ex) {

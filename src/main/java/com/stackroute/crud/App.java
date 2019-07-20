@@ -14,12 +14,23 @@ public class App {
         Update update = new Update();
         Delete delete = new Delete();
 
+        System.out.println("\n Initial Table \n");
         read.readOperation();
+        System.out.println("############################################################\n");
+
+        System.out.println("\n After Inserting a new row \n");
         create.createOperation(5, "Aarav", 2, "m");
         read.readOperation();
-        update.updateOperation(3, "Nannu", 26, "f");
-        read.readOperation();
-        delete.deleteOperation(5);
+        System.out.println("############################################################\n");
 
+        System.out.println("\n After Updating the new row \n");
+        update.updateOperation(5, "Aarie", 3, "m");
+        read.readOperation();
+        System.out.println("############################################################\n");
+
+        System.out.println("\n After Deleting the new row \n");
+        delete.deleteOperation(5);
+        read.readOperation();
+        System.out.println("############################################################\n");
     }
 }
